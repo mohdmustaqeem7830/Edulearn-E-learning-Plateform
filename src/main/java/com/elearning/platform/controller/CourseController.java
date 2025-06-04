@@ -73,7 +73,6 @@ public class CourseController {
             model.addAttribute("error", e);
             return "error";
         }
-
     }
 
     @GetMapping("/edit/{courseId}")
@@ -132,7 +131,7 @@ public class CourseController {
     }
 
     @GetMapping("/{courseId}")
-    @PreAuthorize("hasRole('ROLE_USER')")
+//    @PreAuthorize("hasRole('ROLE_USER')")
     public String getCourseDetail(@PathVariable Long courseId, Authentication authentication, Model model) {
         String username = authentication.getName();
         Boolean enrollment = false;

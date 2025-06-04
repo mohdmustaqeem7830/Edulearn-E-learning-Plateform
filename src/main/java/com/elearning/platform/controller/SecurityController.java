@@ -38,7 +38,7 @@ public class SecurityController {
             return "user/profile";
         } catch (Exception e) {
             e.printStackTrace();
-            model.addAttribute("error", e);
+            model.addAttribute("error", e.getMessage());
             return "error";
         }
     }

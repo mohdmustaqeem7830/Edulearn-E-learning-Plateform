@@ -105,8 +105,9 @@ public class TutorController {
         }
     }
 
-    @GetMapping
-    @PreAuthorize("hasRole('ROLE_USER')")
+    @GetMapping("/")
+//    @PreAuthorize("hasRole('ROLE_USER')")
+//    @PreAuthorize("hasAnyRole('ROLE_USER', 'ROLE_ADMIN')")
     public String getTutorsList(Model model) {
         List<Tutor> tutors = tutorService.getAll();
         model.addAttribute("tutors", tutors);
@@ -129,7 +130,7 @@ public class TutorController {
     }
 
     @GetMapping("/{tutorId}")
-    @PreAuthorize("hasRole('ROLE_USER')")
+//    @PreAuthorize("hasRole('ROLE_USER')")
     public String getTutorDetail(@PathVariable Long tutorId, Model model) {
         try {
             Tutor tutor = tutorRepository.findById(tutorId).get();
